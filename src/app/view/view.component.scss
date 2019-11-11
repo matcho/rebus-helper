@@ -1,0 +1,11 @@
+.img-block {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    > img {
+        height: 200px;
+        border: solid gray 1px;
+        border-radius: 5px;
+    }
+}

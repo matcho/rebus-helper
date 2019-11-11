@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+    <a mat-button color="" [routerLink]="'/home'">Rébus helper !</a>
+    <span class="fill"></span>
+    <a mat-button [routerLink]="'/new'">nouveau</a>
+    <a mat-button [routerLink]="'/list'">liste</a>
+    <a mat-button (click)="showRandom()">au hasard</a>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

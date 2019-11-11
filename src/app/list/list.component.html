@@ -1,0 +1,14 @@
+
+<mat-card>
+    <mat-card-title>
+        Les derniers rébus
+    </mat-card-title>
+    <mat-card-subtitle>
+        Liste limitée à 100 entrées
+    </mat-card-subtitle>
+    <mat-card-content>
+        <div *ngFor="let elt of list">
+            <a [routerLink]="['/view', elt.key]">{{ elt.key }}</a>
+        </div>
+    </mat-card-content>
+</mat-card>

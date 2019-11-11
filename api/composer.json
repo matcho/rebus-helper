@@ -1,0 +1,5 @@
+{
+    "require": {
+        "telabotanica/tb-base-rest-service": "^0.1.4"
+    }
+}
