@@ -38,7 +38,7 @@ class RebusService extends BaseRestServiceTB {
 							if (substr($f, 0, 1) != '.') {
 								$filename = $this->dossierRacine . '/' . $f;
 								// date du système
-								$date = filectime($filename);
+								$date = filectime($filename) * 1000; // milliseconds
 								array_push($rebusParDate, array(
 									"date" => $date,
 									"key" => $f
