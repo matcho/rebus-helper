@@ -63,6 +63,7 @@ class RebusService extends BaseRestServiceTB {
 	}
 
 	protected function post() {
+		header("Access-Control-Allow-Origin: *");
 		$contenu = $this->readRequestBody();
 		//echo $contenu;
 		$nom = md5(microtime());
@@ -78,7 +79,11 @@ class RebusService extends BaseRestServiceTB {
 	protected function put() {}
 	protected function patch() {}
 	protected function delete() {}
-	protected function options() {}
+
+	protected function options() {
+		header("Access-Control-Allow-Origin: *");
+		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+	}
 }
 
 $svc = new RebusService();
