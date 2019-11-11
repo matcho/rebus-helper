@@ -1,0 +1,23 @@
+.rebus-element {
+    display: inline-block;
+    min-width: 150px;
+    margin-top: 1em;
+
+    mat-form-field {
+        display: block;
+    }
+
+    .image-commands {
+        margin-bottom: 1em;
+
+        .prevNext {
+            float: right;
+            margin-left: 1em;
+        }
+    }
+
+    img {
+        height: 200px;
+        margin-bottom: 1em;
+    }
+}

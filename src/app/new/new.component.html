@@ -1,16 +1,25 @@
 
 <mat-card>
     <mat-card-title>
-        New rebus
+        Nouveau rebus
     </mat-card-title>
     <mat-card-subtitle>
         Use buttons to do stuff
     </mat-card-subtitle>
     <mat-card-content>
-        …
+        <h2>Éléments du rébus</h2>
+        <button mat-raised-button id="ajouter-element" color="primary" (click)="addElement()">Ajouter</button>
+        <div class="elements">
+            <app-element [element]="e" *ngFor="let e of elements; let i = index" (onRemove)="removeElement(i)"></app-element>
+        </div>
+        <h2>Solution</h2>
+        <mat-form-field>
+            <input matInput placeholder="Solution du rébus" [(ngModel)]="solution">
+        </mat-form-field>
+        {{ apercuSolution() }}
     </mat-card-content>
     <mat-card-actions>
-        <a mat-raised-button color="primary" (click)="tabarnak()">Save</a>
-        <a mat-raised-button (click)="cancel()">Cancel</a>
+        <a mat-raised-button color="primary" (click)="tabarnak()">Enregistrer</a>
+        <!-- <a mat-raised-button [routerLink]="'/home'">Cancel</a> -->
     </mat-card-actions>
 </mat-card>

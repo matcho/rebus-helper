@@ -1,0 +1,17 @@
+<mat-card class="rebus-element">
+    <mat-card-content>
+        <mat-form-field >
+            <input matInput placeholder="Mot à rechercher" [(ngModel)]="element.motRecherche">
+        </mat-form-field>
+        <div class="image-commands">
+            <a mat-raised-button (click)="searchImages()">Rechercher</a>
+            <a mat-raised-button (click)="nextImage()" [disabled]="noNextImage" class="prevNext">&gt;</a>
+            <a mat-raised-button (click)="previousImage()" [disabled]="noPreviousImage" class="prevNext">&lt;</a>
+        </div>
+        <img [src]="element.image" *ngIf="element.image">
+        <mat-form-field >
+            <input matInput placeholder="Mot à afficher (si différent)" [(ngModel)]="element._motAffiche">
+        </mat-form-field>
+        <a mat-raised-button color="warn" (click)="remove()">Supprimer</a>
+    </mat-card-content>
+</mat-card>
