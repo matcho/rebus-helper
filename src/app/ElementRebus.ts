@@ -1,8 +1,8 @@
 export class ElementRebus {
 
-    private motRecherche: string;
+    public motRecherche: string;
     private _motAffiche: string;
-    private image: string;
+    public image: string;
 
     public constructor(mot: string, image?: string) {
         this.motRecherche = mot;
@@ -16,5 +16,9 @@ export class ElementRebus {
         } else {
             return this.motRecherche;
         }
+    }
+
+    public setImage(image: string) {
+        this.image = image;
     }
 }

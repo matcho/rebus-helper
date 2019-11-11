@@ -19,4 +19,9 @@ export class RebusService {
   public get(id: string) {
     return this.http.get(this.baseUrl + "/rebus/" + id);
   }
+
+  public add(mots: string[], images: string[], solution: string) {
+    const date = new Date().getTime();
+    return this.http.post(this.baseUrl, { mots, images, solution, date });
+  }
 }

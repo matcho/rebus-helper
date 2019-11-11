@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ElementRebus } from '../ElementRebus';
+import { RebusService } from '../rebus.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new',
@@ -11,7 +13,10 @@ export class NewComponent implements OnInit {
   public elements: Array<ElementRebus> = [];
   public solution: string;
 
-  constructor() {
+  constructor(
+    private rebusService: RebusService,
+    private router: Router
+  ) {
     this.solution = "";
   }
 
@@ -24,14 +29,20 @@ export class NewComponent implements OnInit {
   }
 
   public addElement() {
-    this.elements.push(new ElementRebus(
-      "",
-      // "https://france3-regions.francetvinfo.fr/normandie/sites/regions_france3/files/styles/top_big/public/assets/images/2018/06/27/maxstockworld366544-3731571.jpg?itok=RRWQk0aC"
-    ));
+    this.elements.push(new ElementRebus(""));
   }
 
   public removeElement(i: number) {
     this.elements.splice(i, 1);
+  }
+
+  public save() {
+    console.log("SAVING");
+    const mots = this.elements.map((e: any) => e.motAffiche);
+    const images = this.elements.map((e: any) => e.image);
+    this.rebusService.add(mots, images, this.solution).subscribe((data: string) => {
+      this.router.navigate([ "/view", data ]);
+    });
   }
 
 }
