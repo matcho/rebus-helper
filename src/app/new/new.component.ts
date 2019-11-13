@@ -37,7 +37,6 @@ export class NewComponent implements OnInit {
   }
 
   public save() {
-    console.log("SAVING");
     const mots = this.elements.map((e: any) => e.motAffiche);
     const images = this.elements.map((e: any) => e.image);
     this.rebusService.add(mots, images, this.solution).subscribe((data: string) => {

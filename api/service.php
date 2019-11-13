@@ -2,22 +2,21 @@
 
 require_once './vendor/autoload.php';
 
+include './config.php';
 
 class RebusService extends BaseRestServiceTB {
 
-	protected $dossierRacine  = '/home/mathias/www/rebus-helper/api/rebus';
+	protected $dossierRacine;
 
 	public function __construct() {
-		$config = array(
-			"domain_root" => "http://localhost",
-			"base_uri" => "/rebus-helper/api",
-			"first_resource_separator" => "/"
-		);
+		global $config;
 		parent::__construct($config);
+		$this->dossierRacine = $config["data_dir"];
 	}
 
 	protected function get() {
-		header("Access-Control-Allow-Origin: *");
+		global $config;
+		header("Access-Control-Allow-Origin: " . $config["access_control_allow_origin"]);
 		array_shift($this->resources); // service.php
 
 		if (count($this->resources) > 0) {
@@ -63,7 +62,8 @@ class RebusService extends BaseRestServiceTB {
 	}
 
 	protected function post() {
-		header("Access-Control-Allow-Origin: *");
+		global $config;
+		header("Access-Control-Allow-Origin: " . $config["access_control_allow_origin"]);
 		$contenu = $this->readRequestBody();
 		//echo $contenu;
 		$nom = md5(microtime());
@@ -81,7 +81,8 @@ class RebusService extends BaseRestServiceTB {
 	protected function delete() {}
 
 	protected function options() {
-		header("Access-Control-Allow-Origin: *");
+		global $config;
+		header("Access-Control-Allow-Origin: " . $config["access_control_allow_origin"]);
 		header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 	}
 }

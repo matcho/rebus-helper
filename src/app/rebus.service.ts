@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { CONFIG } from '../config';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +11,7 @@ export class RebusService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = "http://localhost/rebus-helper/api/service.php";
+    this.baseUrl = CONFIG.api.base_url;
   }
 
   public list() {

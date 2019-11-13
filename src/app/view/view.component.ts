@@ -20,9 +20,7 @@ export class ViewComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log("ID", this.id);
     this.rebusService.get(this.id).subscribe((data: Object) => {
-      console.log("data", data);
       this.rebus = data;
     });
   }

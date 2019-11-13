@@ -18,7 +18,6 @@ export class AppComponent {
   }
 
   public showRandom() {
-
     this.rebusService.list().subscribe((data: Array<Object>) => {
       const idx = Math.floor(Math.random() * data.length);
       const id = data[idx]["key"];
