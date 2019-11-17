@@ -9,7 +9,7 @@ import { RebusService } from '../rebus.service';
 })
 export class ViewComponent implements OnInit {
 
-  public rebus: Object;
+  public rebus: any;
   public id: string;
   public showSolution = false;
 

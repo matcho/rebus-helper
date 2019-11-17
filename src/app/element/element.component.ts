@@ -10,7 +10,7 @@ import { ImageSearchService } from '../image-search.service';
 export class ElementComponent implements OnInit {
 
   @Input("element")
-  private element: ElementRebus;
+  public element: ElementRebus;
 
   @Output()
   public onRemove: EventEmitter<any> = new EventEmitter();

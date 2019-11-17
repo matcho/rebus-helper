@@ -10,7 +10,7 @@
         </div>
         <img [src]="element.image" *ngIf="element.image">
         <mat-form-field >
-            <input matInput placeholder="Mot à afficher (si différent)" [(ngModel)]="element._motAffiche">
+            <input matInput placeholder="Mot à afficher (si différent)" [(ngModel)]="element.motAffiche">
         </mat-form-field>
         <a mat-raised-button color="warn" (click)="remove()">Supprimer</a>
     </mat-card-content>

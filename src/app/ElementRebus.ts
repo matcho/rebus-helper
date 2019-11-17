@@ -18,6 +18,10 @@ export class ElementRebus {
         }
     }
 
+    public set motAffiche(mot: string) {
+        this._motAffiche = mot;
+    }
+
     public setImage(image: string) {
         this.image = image;
     }
