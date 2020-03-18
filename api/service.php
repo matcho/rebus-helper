@@ -36,8 +36,8 @@ class RebusService extends BaseRestServiceTB {
 						while ($f = readdir($dr)) {
 							if (substr($f, 0, 1) != '.' && substr($f, -7) != '_images') {
 								$filename = $this->dossierRacine . '/' . $f;
-								// date du système
-								$date = filectime($filename) * 1000; // milliseconds
+								// date de création (dernière modif)
+								$date = filemtime($filename) * 1000; // milliseconds
 								array_push($rebusParDate, array(
 									"date" => $date,
 									"key" => $f
